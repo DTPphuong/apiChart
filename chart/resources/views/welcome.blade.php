@@ -1,15 +1,11 @@
-<!doctype html>
+<!doctype HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html lang="en">
 <head>
-    <title>Title</title>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>amCharts examples</title>
+    <script src="/js/amcharts.js" type="text/javascript"></script>
+    <script src="/js/serial.js" type="text/javascript"></script>
 
-    <!-- Resources -->
-    <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
-    <script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
-    <script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
     {{--------------------axios---------------}}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
@@ -25,10 +21,17 @@
     *{
         margin: 15px 5px 5px 5px;
     }
-    #chartdiv {
-        width: 100%;
-        height: 500px;
+    body {
+        font-family: Tahoma,Arial,Verdana;
+        font-size: 12px;
+        color: black;
     }
+
+    a:link {color: #84c4e2;}
+    a:visited {color:#84c4e2;}
+    a:hover {color: #cd82ad;}
+    a:active {color: #84c4e2;}
+
     #table{
         margin-left: 200px;
         text-align: center;
@@ -41,7 +44,7 @@
 <body>
 <!-- HTML -->
 <div class="header"><h1>Chart API</h1></div>
-<div id="chartdiv"></div>
+<div id="chartdiv" style="width: 100%; height: 400px;"></div>
 
 {{-------------test-------------}}
 <table class="table" id="table" border="2px">
@@ -54,6 +57,10 @@
 
 
 <script>
+    $(function (){
+        getData();
+    })
+
     let user = [];
 
     function getData(){
@@ -89,180 +96,117 @@
 
 
 
+        var chart;
 
-    am5.ready(function() {
-        getData();
-        /*Create root element*/ //tạo 1 root
-        // https://www.amcharts.com/docs/v5/getting-started/#Root_element
-        //Root là một phần của core gói của chúng tôi,
-        // vì vậy chúng tôi sử dụng am5.* không gian tên để truy cập nó.
-        var root = am5.Root.new("chartdiv");
-
-        // Set themes
-        // https://www.amcharts.com/docs/v5/concepts/themes/
-        //setThemes()phương pháp của phần tử gốc của nó ,
-        // cung cấp các phiên bản của chủ đề, được tạo bằng new()phương pháp của chúng :
-        root.setThemes([
-            am5themes_Animated.new(root)
-        ]);
-
-
-        // Create chart
-        // https://www.amcharts.com/docs/v5/charts/xy-chart/
-        //biểu đồ XY về cơ bản được sử dụng để biểu diễn bất kỳ dữ liệu tuyến tính
-        // hoặc phân tán nào trong hai chiều. Hướng dẫn này sẽ giúp bạn bắt đầu tạo các biểu đồ này.
-        var chart = root.container.children.push(am5xy.XYChart.new(root, {
-            panX: false,
-            panY: false,
-            wheelX: "panX",
-            wheelY: "zoomX",
-            layout: root.verticalLayout
-        }));
-
-        var colors = chart.get("colors");
-
-        var data = [{
-            country: "US",
-            visits: 500
-        }, {
-            country: "UK",
-            visits: 325
-        }, {
-            country: "China",
-            visits: 602
-        }, {
-            country: "Japan",
-            visits: 259
-        }, {
-            country: "Germany",
-            visits: 322
-        }, {
-            country: "France",
-            visits: 214
-        }, {
-            country: "India",
-            visits: 204
-        }, {
-            country: "Spain",
-            visits: 198
-        }, {
-            country: "Netherlands",
-            visits: 165
-        }, {
-            country: "Russia",
-            visits: 130
-        }, {
-            country: "South Korea",
-            visits: 93
-        }, {
-            country: "Canada",
-            visits: 41
-        }];
-
-        prepareParetoData();
-
-        //Duyệt qua mảng lấy ra visits
-        function prepareParetoData() {
-            var total = 0;
-
-            for (var i = 0; i < data.length; i++) {
-                var value = data[i].visits;
-                total += value;
-            }
-
-            var sum = 0;
-            for (var i = 0; i < data.length; i++) {
-                var value = data[i].visits;
-                sum += value;
-                data[i].pareto = sum / total * 100;
-            }
+        var chartData = [
+        {
+            "country": "USA",
+            "visits": 4025
+        },
+        {
+            "country": "China",
+            "visits": 1882
+        },
+        {
+            "country": "Japan",
+            "visits": 1809
+        },
+        {
+            "country": "Germany",
+            "visits": 1322
+        },
+        {
+            "country": "UK",
+            "visits": 1122
+        },
+        {
+            "country": "France",
+            "visits": 1114
+        },
+        {
+            "country": "India",
+            "visits": 984
+        },
+        {
+            "country": "Spain",
+            "visits": 711
+        },
+        {
+            "country": "Netherlands",
+            "visits": 665
+        },
+        {
+            "country": "Russia",
+            "visits": 580
+        },
+        {
+            "country": "South Korea",
+            "visits": 443
+        },
+        {
+            "country": "Canada",
+            "visits": 441
+        },
+        {
+            "country": "Brazil",
+            "visits": 395
+        },
+        {
+            "country": "Italy",
+            "visits": 386
+        },
+        {
+            "country": "Australia",
+            "visits": 384
+        },
+        {
+            "country": "Taiwan",
+            "visits": 338
+        },
+        {
+            "country": "Poland",
+            "visits": 328
         }
+        ];
 
 
+        AmCharts.ready(function () {
+        // SERIAL CHART
+        chart = new AmCharts.AmSerialChart();
+        chart.dataProvider = chartData;
+        chart.categoryField = "country";
+        chart.startDuration = 1;
 
-        // Create axes
-        // https://www.amcharts.com/docs/v5/charts/xy-chart/axes/
-        var xAxis = chart.xAxes.push(am5xy.CategoryAxis.new(root, {
-            categoryField: "country",
-            renderer: am5xy.AxisRendererX.new(root, {
-                minGridDistance: 30
-            })
-        }));
+        // AXES
+        // category
+        var categoryAxis = chart.categoryAxis;
+        categoryAxis.labelRotation = 90;
+        categoryAxis.gridPosition = "start";
 
-        xAxis.get("renderer").labels.template.setAll({
-            paddingTop: 20
-        });
+        // value
+        // in case you don't want to change default settings of value axis,
+        // you don't need to create it, as one value axis is created automatically.
 
-        xAxis.data.setAll(data);
+        // GRAPH
+        var graph = new AmCharts.AmGraph();
+        graph.valueField = "visits";
+        graph.balloonText = "[[category]]: <b>[[value]]</b>";
+        graph.type = "column";
+        graph.lineAlpha = 0;
+        graph.fillAlphas = 0.8;
+        chart.addGraph(graph);
 
-        var yAxis = chart.yAxes.push(am5xy.ValueAxis.new(root, {
-            renderer: am5xy.AxisRendererY.new(root, {})
-        }));
+        // CURSOR
+        var chartCursor = new AmCharts.ChartCursor();
+        chartCursor.cursorAlpha = 0;
+        chartCursor.zoomable = false;
+        chartCursor.categoryBalloonEnabled = false;
+        chart.addChartCursor(chartCursor);
 
-        var paretoAxisRenderer = am5xy.AxisRendererY.new(root, {opposite:true});
-        var paretoAxis = chart.yAxes.push(am5xy.ValueAxis.new(root, {
-            renderer: paretoAxisRenderer,
-            min:0,
-            max:100,
-            strictMinMax:true
-        }));
+        chart.creditsPosition = "top-right";
 
-        paretoAxisRenderer.grid.template.set("forceHidden", true);
-        paretoAxis.set("numberFormat", "#'%");
-
-
-        // Add series
-        // https://www.amcharts.com/docs/v5/charts/xy-chart/series/
-        var series = chart.series.push(am5xy.ColumnSeries.new(root, {
-            xAxis: xAxis,
-            yAxis: yAxis,
-            valueYField: "visits",
-            categoryXField: "country"
-        }));
-
-        series.columns.template.setAll({
-            tooltipText: "{categoryX}: {valueY}",
-            tooltipY: 0,
-            strokeOpacity: 0,
-            cornerRadiusTL: 6,
-            cornerRadiusTR: 6
-        });
-
-        series.columns.template.adapters.add("fill", function(fill, target) {
-            return chart.get("colors").getIndex(series.dataItems.indexOf(target.dataItem));
-        })
-
-
-        // pareto series
-        var paretoSeries = chart.series.push(am5xy.LineSeries.new(root, {
-            xAxis: xAxis,
-            yAxis: paretoAxis,
-            valueYField: "pareto",
-            categoryXField: "country",
-            stroke: root.interfaceColors.get("alternativeBackground"),
-            maskBullets:false
-        }));
-
-        paretoSeries.bullets.push(function() {
-            return am5.Bullet.new(root, {
-                locationY: 1,
-                sprite: am5.Circle.new(root, {
-                    radius: 5,
-                    fill: series.get("fill"),
-                    stroke:root.interfaceColors.get("alternativeBackground")
-                })
-            })
-        })
-
-        series.data.setAll(data);
-        paretoSeries.data.setAll(data);
-
-        // Make stuff animate on load
-        // https://www.amcharts.com/docs/v5/concepts/animations/
-        series.appear();
-        chart.appear(1000, 100);
-
-    }); // end am5.ready()
+        chart.write("chartdiv");
+    });
 </script>
 
 
