@@ -10,6 +10,13 @@
     <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
     <script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
     <script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
+    {{--------------------axios---------------}}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js" ></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
@@ -19,12 +26,21 @@
         width: 100%;
         height: 500px;
     }
+    #table{
+        margin-left: 200px;
+        text-align: center;
+        width: 600px;
+    }
 </style>
 <body>
 <!-- HTML -->
+
 <div id="chartdiv"></div>
 
+{{-------------test-------------}}
+<table class="table" id="table" border="2px">
 
+</table>
 
 
 
@@ -32,15 +48,54 @@
 
 
 <script>
+    let user = [];
+
+    function getData(){
+        axios({
+            method : 'get',
+            url : 'https://62e8ab6e93938a545be933c4.mockapi.io/data',
+            data: {
+                country: "",
+                visits: 0
+            }
+        }).then(res =>{
+            user = res.data;
+            console.log(user);
+            // console.log(res.data);
+            renderData();
+        }).catch(err =>{
+            console.log(err);
+        });
+    }
+    function renderData(){
+        let element = `<tr>
+        <th>Country</th>
+        <th>Visits</th>
+</tr>`
+        user.map(value =>{
+            element +=`<tr>
+        <td>${value.country}</td>
+        <td>${value.visits}</td>
+</tr>`
+        });
+        document.getElementById("table").innerHTML = element
+    }
+
+
+
+
     am5.ready(function() {
-
-        // Create root element
+        getData();
+        /*Create root element*/ //tạo 1 root
         // https://www.amcharts.com/docs/v5/getting-started/#Root_element
+        //Root là một phần của core gói của chúng tôi,
+        // vì vậy chúng tôi sử dụng am5.* không gian tên để truy cập nó.
         var root = am5.Root.new("chartdiv");
-
 
         // Set themes
         // https://www.amcharts.com/docs/v5/concepts/themes/
+        //setThemes()phương pháp của phần tử gốc của nó ,
+        // cung cấp các phiên bản của chủ đề, được tạo bằng new()phương pháp của chúng :
         root.setThemes([
             am5themes_Animated.new(root)
         ]);
@@ -48,6 +103,8 @@
 
         // Create chart
         // https://www.amcharts.com/docs/v5/charts/xy-chart/
+        //biểu đồ XY về cơ bản được sử dụng để biểu diễn bất kỳ dữ liệu tuyến tính
+        // hoặc phân tán nào trong hai chiều. Hướng dẫn này sẽ giúp bạn bắt đầu tạo các biểu đồ này.
         var chart = root.container.children.push(am5xy.XYChart.new(root, {
             panX: false,
             panY: false,
@@ -60,16 +117,16 @@
 
         var data = [{
             country: "US",
-            visits: 725
+            visits: 500
         }, {
             country: "UK",
-            visits: 625
+            visits: 325
         }, {
             country: "China",
             visits: 602
         }, {
             country: "Japan",
-            visits: 509
+            visits: 259
         }, {
             country: "Germany",
             visits: 322
@@ -98,6 +155,7 @@
 
         prepareParetoData();
 
+        //Duyệt qua mảng lấy ra visits
         function prepareParetoData() {
             var total = 0;
 
