@@ -22,6 +22,9 @@
 </head>
 <!-- Styles -->
 <style>
+    *{
+        margin: 15px 5px 5px 5px;
+    }
     #chartdiv {
         width: 100%;
         height: 500px;
@@ -31,10 +34,13 @@
         text-align: center;
         width: 600px;
     }
+    .header{
+        text-align: center;
+    }
 </style>
 <body>
 <!-- HTML -->
-
+<div class="header"><h1>Chart API</h1></div>
 <div id="chartdiv"></div>
 
 {{-------------test-------------}}
@@ -80,8 +86,6 @@
         });
         document.getElementById("table").innerHTML = element
     }
-
-
 
 
     am5.ready(function() {
@@ -155,20 +159,20 @@
 
         prepareParetoData();
 
-        //Duyệt qua mảng lấy ra visits
+        //Duyệt qua mảng lấy ra visits đưa vào trục chỉ
         function prepareParetoData() {
             var total = 0;
 
-            for (var i = 0; i < data.length; i++) {
-                var value = data[i].visits;
+            for (var i = 0; i < user.length; i++) {
+                var value = user[i].visits;
                 total += value;
             }
 
             var sum = 0;
-            for (var i = 0; i < data.length; i++) {
-                var value = data[i].visits;
+            for (var i = 0; i < user.length; i++) {
+                var value = user[i].visits;
                 sum += value;
-                data[i].pareto = sum / total * 100;
+                user[i].pareto = sum / total * 100;
             }
         }
 
@@ -248,8 +252,8 @@
             })
         })
 
-        series.data.setAll(data);
-        paretoSeries.data.setAll(data);
+        series.data.setAll(user);
+        paretoSeries.data.setAll(user);
 
         // Make stuff animate on load
         // https://www.amcharts.com/docs/v5/concepts/animations/
