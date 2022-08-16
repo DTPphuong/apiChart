@@ -22,6 +22,9 @@
 </head>
 <!-- Styles -->
 <style>
+    *{
+        margin: 15px 5px 5px 5px;
+    }
     #chartdiv {
         width: 100%;
         height: 500px;
@@ -31,10 +34,13 @@
         text-align: center;
         width: 600px;
     }
+    .header{
+        text-align: center;
+    }
 </style>
 <body>
 <!-- HTML -->
-
+<div class="header"><h1>Chart API</h1></div>
 <div id="chartdiv"></div>
 
 {{-------------test-------------}}
