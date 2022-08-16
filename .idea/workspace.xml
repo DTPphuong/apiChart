@@ -4,87 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7cf6f025-014d-4747-a363-876d0ec3adb9" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/chart/.editorconfig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chart/.env.example" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chart/.gitattributes" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chart/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chart/.styleci.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chart/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chart/app/Console/Kernel.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chart/app/Exceptions/Handler.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chart/app/Http/Controllers/Controller.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chart/app/Http/Kernel.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chart/app/Http/Middleware/Authenticate.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chart/app/Http/Middleware/CheckForMaintenanceMode.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chart/app/Http/Middleware/EncryptCookies.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chart/app/Http/Middleware/RedirectIfAuthenticated.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chart/app/Http/Middleware/TrimStrings.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chart/app/Http/Middleware/TrustProxies.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chart/app/Http/Middleware/VerifyCsrfToken.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chart/app/Providers/AppServiceProvider.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chart/app/Providers/AuthServiceProvider.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chart/app/Providers/BroadcastServiceProvider.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chart/app/Providers/EventServiceProvider.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chart/app/Providers/RouteServiceProvider.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chart/app/User.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chart/artisan" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chart/bootstrap/app.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chart/bootstrap/cache/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chart/composer.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chart/composer.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chart/config/app.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chart/config/auth.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chart/config/broadcasting.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chart/config/cache.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chart/config/cors.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chart/config/database.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chart/config/filesystems.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chart/config/hashing.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chart/config/logging.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chart/config/mail.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chart/config/queue.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chart/config/services.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chart/config/session.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chart/config/view.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chart/database/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chart/database/factories/UserFactory.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chart/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chart/database/migrations/2019_08_19_000000_create_failed_jobs_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chart/database/seeds/DatabaseSeeder.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chart/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chart/phpunit.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chart/public/.htaccess" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chart/public/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chart/public/index.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chart/public/robots.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chart/public/web.config" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chart/resources/js/app.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chart/resources/js/bootstrap.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chart/resources/lang/en/auth.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chart/resources/lang/en/pagination.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chart/resources/lang/en/passwords.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chart/resources/lang/en/validation.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chart/resources/sass/app.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chart/routes/api.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chart/routes/channels.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chart/routes/console.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chart/routes/web.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chart/server.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chart/storage/app/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chart/storage/app/public/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chart/storage/framework/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chart/storage/framework/cache/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chart/storage/framework/cache/data/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chart/storage/framework/sessions/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chart/storage/framework/testing/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chart/storage/framework/views/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chart/storage/logs/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chart/tests/CreatesApplication.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chart/tests/Feature/ExampleTest.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chart/tests/TestCase.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chart/tests/Unit/ExampleTest.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chart/webpack.mix.js" beforeDir="false" />
+    <list default="true" id="7cf6f025-014d-4747-a363-876d0ec3adb9" name="Changes" comment="thay doi">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiChart/chart/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/apiChart/chart/resources/views/welcome.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -265,8 +187,23 @@
       <workItem from="1660620940917" duration="4709000" />
       <workItem from="1660629016247" duration="415000" />
       <workItem from="1660629460162" duration="380000" />
-      <workItem from="1660629860792" duration="2411000" />
+      <workItem from="1660629860792" duration="4419000" />
     </task>
+    <task id="LOCAL-00001" summary="thay doi">
+      <created>1660633181197</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1660633181197</updated>
+    </task>
+    <task id="LOCAL-00002" summary="thay doi">
+      <created>1660633345776</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1660633345776</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -282,5 +219,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="thay doi" />
+    <option name="LAST_COMMIT_MESSAGE" value="thay doi" />
   </component>
 </project>
