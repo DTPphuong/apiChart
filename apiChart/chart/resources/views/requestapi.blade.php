@@ -11,11 +11,14 @@
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
 
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<<<<<<< HEAD
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 {{--    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>--}}
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+=======
+>>>>>>> origin/main
 </head>
 
 <style>
@@ -25,10 +28,13 @@
     th {
         border: 1px solid #000000;
     }
+<<<<<<< HEAD
     .modal-body {
         display: flex;
         justify-content: space-between;
     }
+=======
+>>>>>>> origin/main
 </style>
 <body>
 
@@ -41,7 +47,10 @@
         <th>Đơn vị</th>
         <th>Danh mục</th>
         <th>Giá bán</th>
+<<<<<<< HEAD
         <th>Chi tiết</th>
+=======
+>>>>>>> origin/main
     </tr>
     </thead>
     <tr>
@@ -51,13 +60,17 @@
         <th></th>
         <th></th>
         <th></th>
+<<<<<<< HEAD
         <th>
 
         </th>
+=======
+>>>>>>> origin/main
     </tr>
 
 </table>
 
+<<<<<<< HEAD
 <div class="container">
 
     <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Chi tiết</button>
@@ -94,6 +107,9 @@
     </div>
 
 </div>
+=======
+
+>>>>>>> origin/main
 </body>
 
 <script>
@@ -101,6 +117,7 @@
     $(function (){
         getData()
     })
+<<<<<<< HEAD
     function getData(){
         axios({
             method : 'get',
@@ -133,6 +150,35 @@
             ]
         })
     }
+=======
+        function getData(){
+            axios({
+                method : 'get',
+                url : '/request',
+                // Get link Controller"
+            }).then(res =>{
+                console.log('a:',res.data.data.list);
+                showData(res.data.data.list)
+            }).catch(err =>{
+                console.log(err);
+            });
+        }
+        // Show data
+        function showData(data){
+            console.log('2',data)
+            $('#table1').DataTable({
+                data: data,
+                columns: [
+                    { data: 'id'},
+                    { data: 'avatar'},
+                    { data: 'name'},
+                    { data: 'unit_type'},
+                    { data: 'category_name'},
+                    { data: 'price'},
+                ]
+            })
+        }
+>>>>>>> origin/main
 
 </script>
 

@@ -22,6 +22,12 @@
 </head>
 <!-- Styles -->
 <style>
+<<<<<<< HEAD
+=======
+    *{
+        margin: 15px 5px 5px 5px;
+    }
+>>>>>>> origin/main
     #chartdiv {
         width: 100%;
         height: 500px;
@@ -31,10 +37,20 @@
         text-align: center;
         width: 600px;
     }
+<<<<<<< HEAD
 </style>
 <body>
 <!-- HTML -->
 
+=======
+    .header{
+        text-align: center;
+    }
+</style>
+<body>
+<!-- HTML -->
+<div class="header"><h1>Chart API</h1></div>
+>>>>>>> origin/main
 <div id="chartdiv"></div>
 
 {{-------------test-------------}}
@@ -49,6 +65,10 @@
 
 <script>
     let user = [];
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/main
     function getData(){
         axios({
             method : 'get',
@@ -79,6 +99,11 @@
         });
         document.getElementById("table").innerHTML = element
     }
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> origin/main
     am5.ready(function() {
         getData();
         /*Create root element*/ //tạo 1 root
@@ -86,6 +111,10 @@
         //Root là một phần của core gói của chúng tôi,
         // vì vậy chúng tôi sử dụng am5.* không gian tên để truy cập nó.
         var root = am5.Root.new("chartdiv");
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/main
         // Set themes
         // https://www.amcharts.com/docs/v5/concepts/themes/
         //setThemes()phương pháp của phần tử gốc của nó ,
@@ -93,6 +122,11 @@
         root.setThemes([
             am5themes_Animated.new(root)
         ]);
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> origin/main
         // Create chart
         // https://www.amcharts.com/docs/v5/charts/xy-chart/
         //biểu đồ XY về cơ bản được sử dụng để biểu diễn bất kỳ dữ liệu tuyến tính
@@ -104,7 +138,13 @@
             wheelY: "zoomX",
             layout: root.verticalLayout
         }));
+<<<<<<< HEAD
         var colors = chart.get("colors");
+=======
+
+        var colors = chart.get("colors");
+
+>>>>>>> origin/main
         var data = [{
             country: "US",
             visits: 500
@@ -142,6 +182,7 @@
             country: "Canada",
             visits: 41
         }];
+<<<<<<< HEAD
         prepareParetoData();
         //Duyệt qua mảng lấy ra visits
         function prepareParetoData() {
@@ -157,6 +198,30 @@
                 data[i].pareto = sum / total * 100;
             }
         }
+=======
+
+        prepareParetoData();
+
+        //Duyệt qua mảng lấy ra visits đưa vào trục chỉ
+        function prepareParetoData() {
+            var total = 0;
+
+            for (var i = 0; i < user.length; i++) {
+                var value = user[i].visits;
+                total += value;
+            }
+
+            var sum = 0;
+            for (var i = 0; i < user.length; i++) {
+                var value = user[i].visits;
+                sum += value;
+                user[i].pareto = sum / total * 100;
+            }
+        }
+
+
+
+>>>>>>> origin/main
         // Create axes
         // https://www.amcharts.com/docs/v5/charts/xy-chart/axes/
         var xAxis = chart.xAxes.push(am5xy.CategoryAxis.new(root, {
@@ -165,6 +230,7 @@
                 minGridDistance: 30
             })
         }));
+<<<<<<< HEAD
         xAxis.get("renderer").labels.template.setAll({
             paddingTop: 20
         });
@@ -172,6 +238,19 @@
         var yAxis = chart.yAxes.push(am5xy.ValueAxis.new(root, {
             renderer: am5xy.AxisRendererY.new(root, {})
         }));
+=======
+
+        xAxis.get("renderer").labels.template.setAll({
+            paddingTop: 20
+        });
+
+        xAxis.data.setAll(data);
+
+        var yAxis = chart.yAxes.push(am5xy.ValueAxis.new(root, {
+            renderer: am5xy.AxisRendererY.new(root, {})
+        }));
+
+>>>>>>> origin/main
         var paretoAxisRenderer = am5xy.AxisRendererY.new(root, {opposite:true});
         var paretoAxis = chart.yAxes.push(am5xy.ValueAxis.new(root, {
             renderer: paretoAxisRenderer,
@@ -179,8 +258,16 @@
             max:100,
             strictMinMax:true
         }));
+<<<<<<< HEAD
         paretoAxisRenderer.grid.template.set("forceHidden", true);
         paretoAxis.set("numberFormat", "#'%");
+=======
+
+        paretoAxisRenderer.grid.template.set("forceHidden", true);
+        paretoAxis.set("numberFormat", "#'%");
+
+
+>>>>>>> origin/main
         // Add series
         // https://www.amcharts.com/docs/v5/charts/xy-chart/series/
         var series = chart.series.push(am5xy.ColumnSeries.new(root, {
@@ -189,6 +276,10 @@
             valueYField: "visits",
             categoryXField: "country"
         }));
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/main
         series.columns.template.setAll({
             tooltipText: "{categoryX}: {valueY}",
             tooltipY: 0,
@@ -196,9 +287,18 @@
             cornerRadiusTL: 6,
             cornerRadiusTR: 6
         });
+<<<<<<< HEAD
         series.columns.template.adapters.add("fill", function(fill, target) {
             return chart.get("colors").getIndex(series.dataItems.indexOf(target.dataItem));
         })
+=======
+
+        series.columns.template.adapters.add("fill", function(fill, target) {
+            return chart.get("colors").getIndex(series.dataItems.indexOf(target.dataItem));
+        })
+
+
+>>>>>>> origin/main
         // pareto series
         var paretoSeries = chart.series.push(am5xy.LineSeries.new(root, {
             xAxis: xAxis,
@@ -208,6 +308,10 @@
             stroke: root.interfaceColors.get("alternativeBackground"),
             maskBullets:false
         }));
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/main
         paretoSeries.bullets.push(function() {
             return am5.Bullet.new(root, {
                 locationY: 1,
@@ -218,12 +322,23 @@
                 })
             })
         })
+<<<<<<< HEAD
         series.data.setAll(data);
         paretoSeries.data.setAll(data);
+=======
+
+        series.data.setAll(user);
+        paretoSeries.data.setAll(user);
+
+>>>>>>> origin/main
         // Make stuff animate on load
         // https://www.amcharts.com/docs/v5/concepts/animations/
         series.appear();
         chart.appear(1000, 100);
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/main
     }); // end am5.ready()
 </script>
 
